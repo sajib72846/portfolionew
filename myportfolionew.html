@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jabir Nayan - Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mainColor: #15202B;
+            --secondaryColor: #192734;
+            --borderColor: #164D56;
+            --mainText: #fff;
+            --secondaryText: #eeeeee;
+            --accentColor: #17a2b8;
+            --accentHover: #138496;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--mainColor);
+            color: var(--mainText);
+            transition: all 0.3s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Russo One', sans-serif;
+            color: var(--mainText);
+        }
+
+        a {
+            color: var(--accentColor);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--accentHover);
+        }
+
+        .navbar {
+            background-color: var(--secondaryColor);
+            border-bottom: 1px solid var(--borderColor);
+        }
+
+        .navbar-brand .dots-wrapper {
+            display: flex;
+            padding: 10px;
+        }
+
+        .browser-dot {
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            margin: 5px;
+        }
+
+        #dot-1 { background-color: #FC6058; }
+        #dot-2 { background-color: #FEC02F; }
+        #dot-3 { background-color: #2ACA3E; }
+
+        .nav-link.active {
+            color: var(--accentColor) !important;
+            font-weight: bold;
+        }
+
+        .theme-dot {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            margin: 5px;
+            border: 2px solid var(--mainText);
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .theme-dot:hover {
+            border-width: 5px;
+        }
+
+        #light-mode { background-color: #eaeaea; }
+        #blue-mode { background-color: #15202B; }
+        #green-mode { background-color: #606B56; }
+        #purple-mode { background-color: #46344E; }
+
+        .section {
+            min-height: 100vh;
+            padding: 80px 0;
+            background-color: var(--mainColor);
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 2px solid var(--borderColor);
+            border-radius: 10px;
+        }
+
+        .about-img {
+            width: 100%;
+            max-width: 550px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background-color: var(--accentColor);
+            border-color: var(--accentColor);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accentHover);
+            border-color: var(--accentHover);
+        }
+
+        .project-card {
+            background-color: var(--secondaryColor);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .contact-link {
+            display: inline-block;
+            margin: 10px 15px;
+            padding: 10px 20px;
+            background-color: var(--accentColor);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            background-color: var(--accentHover);
+            color: white;
+        }
+
+        .contact-link i {
+            margin-right: 8px;
+            font-size: 20px;
+        }
+
+        footer {
+            background-color: var(--secondaryColor);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 28px;
+            margin: 0 10px;
+        }
+
+        #resume-frame {
+            width: 100%;
+            height: 600px;
+            border: 1px solid var(--borderColor);
+            border-radius: 10px;
+        }
+
+        /* Theme specific overrides */
+        .light-theme {
+            --mainColor: #eaeaea;
+            --secondaryColor: #fff;
+            --borderColor: #c1c1c1;
+            --mainText: black;
+            --secondaryText: #4b5156;
+            --accentColor: #17a2b8;
+            --accentHover: #138496;
+        }
+
+        .blue-theme {
+            --mainColor: #15202B;
+            --secondaryColor: #192734;
+            --borderColor: #164D56;
+            --mainText: #fff;
+            --secondaryText: #eeeeee;
+            --accentColor: #17a2b8;
+            --accentHover: #138496;
+        }
+
+        .green-theme {
+            --mainColor: #606B56;
+            --secondaryColor: #515a48;
+            --borderColor: #161914;
+            --mainText: #fff;
+            --secondaryText: #eeeeee;
+            --accentColor: #669966;
+            --accentHover: #558855;
+        }
+
+        .purple-theme {
+            --mainColor: #46344E;
+            --secondaryColor: #382a3f;
+            --borderColor: #1d1520;
+            --mainText: #fff;
+            --secondaryText: #eeeeee;
+            --accentColor: #8534a3;
+            --accentHover: #6a2985;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <div class="dots-wrapper">
+                    <span id="dot-1" class="browser-dot"></span>
+                    <span id="dot-2" class="browser-dot"></span>
+                    <span id="dot-3" class="browser-dot"></span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#competitive">Competitive</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <h1>Hi, I'm Shajib Mohammad Saifullah</h1>
+                    <p class="lead">Aspiring Software Engineer • Creative Thinker • Code Enthusiast</p>
+                    <div class="mt-4">
+                        <h5>Personalize Theme</h5>
+                        <div id="theme-options">
+                            <div data-mode="light" id="light-mode" class="theme-dot"></div>
+                            <div data-mode="blue" id="blue-mode" class="theme-dot"></div>
+                            <div data-mode="green" id="green-mode" class="theme-dot"></div>
+                            <div data-mode="purple" id="purple-mode" class="theme-dot"></div>
+                        </div>
+                        <p class="small">*Theme settings will be saved for your next visit</p>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="images/index.jpg" alt="Shajib Mohammad Saifullah" class="profile-img mt-4 mt-md-0">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="images/about2.jpg" alt="About Shajib Mohammad Saifullah" class="about-img">
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <h1>About Me</h1>
+                    <p>I am Shajib Mohammad Saifullah, an aspiring software engineer with a passion for coding and creative problem solving. I enjoy learning new technologies and applying them to build innovative projects.</p>
+                    <p>With a strong foundation in computer science and experience in competitive programming, I aim to grow continuously and contribute to impactful software solutions.</p>
+                    <p>When not coding, I like to explore new ideas, work on side projects, and engage with developer communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h1 class="text-center mb-5">Education</h1>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <p>I am currently pursuing my Bachelor of Science in Information and Communication Technology (ICT), focusing on software development and algorithmic problem solving.</p>
+                    <p>My coursework includes Data Structures, Algorithms, Databases, Operating Systems, and Web Development.</p>
+                    <p>I actively participate in coding contests and workshops to enhance my skills beyond the classroom.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h1 class="text-center mb-5">Skills</h1>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <p>I have experience with programming languages such as C++, Python, and JavaScript.</p>
+                    <p>My expertise includes data structures, algorithms, web development, and competitive programming.</p>
+                    <p>I am also proficient in tools like Git, VS Code, and Linux environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitive Programming Section -->
+    <section id="competitive" class="section">
+        <div class="container">
+            <h1 class="text-center mb-5">Competitive Programming</h1>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <p>Competitive programming challenges my problem-solving and algorithmic skills. I actively participate in contests to sharpen my coding efficiency and logical thinking. It helps me stay updated with advanced data structures and optimization techniques.</p>
+                    <p>Through continuous practice, I aim to excel in contests like Codeforces, CodeChef, and AtCoder.</p>
+                    
+                    <div class="mt-4">
+                        <h3>Profiles</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <a href="https://codeforces.com/profile/Jabir_Nayan" target="_blank">Codeforces</a> – Max Rating: 1488 (Specialist), Solved 850+ problems
+                            </li>
+                            <li class="mb-2">
+                                <a href="https://www.codechef.com/users/jhnayandx704" target="_blank">CodeChef</a> – Max Rating: 1732(3 star), Solved 110+ problems
+                            </li>
+                            <li class="mb-2">
+                                <a href="https://leetcode.com/u/NayanJabir23/" target="_blank">LeetCode</a> – Max Rating 1488, Solved many problems
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h1 class="text-center mb-5">Projects</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <h3>Doodle Game</h3>
+                        <p>A simple browser-based platformer game where a doodle character jumps on platforms and tries to survive as long as possible.</p>
+                        <a href="https://github.com/JHNayan23/doodle-game" target="_blank" class="btn btn-primary">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <h3>Algorithm Visualizer</h3>
+                        <p>An interactive visualizer that demonstrates sorting and pathfinding algorithms, aimed at helping learners understand algorithm behavior.</p>
+                        <a href="https://github.com/JHNayan23/vs-algo" target="_blank" class="btn btn-primary">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <h3>Bluetooth-Controlled Wheelchair (Arduino)</h3>
+                        <p>A custom-built wheelchair controlled via smartphone Bluetooth signals, using Arduino and motor driver modules.</p>
+                        <a href="https://github.com/JHNayan23/Bluetooth_C_W" target="_blank" class="btn btn-primary">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>I continuously explore new project ideas to improve my skills and creativity.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="section">
+        <div class="container">
+            <h1 class="text-center mb-5">My Resume</h1>
+            <div class="text-center">
+                <a href="resume.pdf" target="_blank" class="btn btn-primary btn-lg mb-4">Download Resume (PDF)</a>
+                <iframe id="resume-frame" src="resume.pdf"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h1 class="text-center mb-5">Contact Me</h1>
+            <div class="text-center">
+                <p>If you'd like to get in touch, feel free to reach out via email or social media.</p>
+                <p>I am open to networking, collaborations, and answering any questions you may have.</p>
+                <p>Thank you for visiting my portfolio!</p>
+                
+                <div class="mt-5">
+                    
+                    <a href="https://www.linkedin.com/in/shajib-mohammad-382119371/" target="_blank" class="contact-link">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/sajib72846" target="_blank" class="contact-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-icons mb-3">
+                
+                <a href="https://www.linkedin.com/in/shajib-mohammad-382119371/" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/sajib72846" target="_blank" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div>© 2025 Jabir Nayan. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Theme Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme functionality
+            let theme = localStorage.getItem('theme') || 'blue';
+            setTheme(theme);
+            
+            const themeDots = document.querySelectorAll('.theme-dot');
+            
+            themeDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const mode = this.dataset.mode;
+                    setTheme(mode);
+                });
+            });
+            
+            function setTheme(mode) {
+                document.body.className = mode + '-theme';
+                localStorage.setItem('theme', mode);
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active nav link
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                });
+            });
+            
+            // Update active nav link on scroll
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('section');
+                const scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
